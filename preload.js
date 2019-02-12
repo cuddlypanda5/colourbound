@@ -4,8 +4,8 @@ function loadImage(filename) {
     let image = new Image();
 
     image.addEventListener("load", function() {
-        loadingImagesCount -= 1;
-    });    
+        --loadingImagesCount;
+    });
 
     image.src = filename;
     loadingImagesCount += 1;
@@ -14,5 +14,5 @@ function loadImage(filename) {
 }
 
 function areAllAssetsLoaded() {
-    return loadingImagesCount == 0;
+    return loadingImagesCount == 0 && tileMap;
 }
